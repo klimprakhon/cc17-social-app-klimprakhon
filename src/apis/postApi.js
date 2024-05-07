@@ -4,11 +4,11 @@ export const getAllPosts = async () => {
   return await axios.get("/posts");
 };
 
-export const getPostById = async () => {
+export const getPostById = async (id) => {
   return await axios.get(`/posts/${id}`);
 };
 
-export const deletePost = async () => {
+export const deletePost = async (id) => {
   return await axios.delete(`/posts/${id}`);
 };
 
