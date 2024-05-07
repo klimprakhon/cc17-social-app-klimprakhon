@@ -1,6 +1,6 @@
 
 import { CssBaseline } from "@mui/material";
-import AuthContextProvider from "./context/AuthenContext";
+import AuthContextProvider from "./context/AuthContext";
 import PostContextProvider from "./context/PostContext";
 import ThemeContextProvider from "./context/ThemeContext";
 import Router from "./routes/Router";

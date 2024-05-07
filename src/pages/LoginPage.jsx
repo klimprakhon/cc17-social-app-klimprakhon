@@ -1,6 +1,34 @@
+import { useContext, useState } from "react";
 import { Box, Typography, Button, TextField, Divider } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
+  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleChangeEmailOrPhone = (event) => {
+    setEmailOrPhone(event.target.value);
+  };
+
+  const handleChangePassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Validation
+    if (emailOrPhone === "qwer" && password === "1234") {
+      await login();
+      navigate("/");
+    } else {
+      alert("Invalid username or password");
+    }
+  };
+
   return (
     <Box
       component="main"
@@ -43,18 +71,21 @@ function LoginPage() {
           padding="16px"
           backgroundColor="white"
           borderRadius={2}
+          onSubmit={handleSubmit}
         >
           <TextField
             type="text"
             variant="outlined"
             size="small"
             label="Email or Phone Number"
+            onChange={handleChangeEmailOrPhone}
           />
           <TextField
             type="text"
             variant="outlined"
             size="small"
             label="Password"
+            onChange={handleChangePassword}
           />
           <Button type="submit" variant="contained" color="primary">
             Login

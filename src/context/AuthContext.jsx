@@ -7,15 +7,14 @@ function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
   // Login => user = {}
   // Logout => user = null
-
   const login = async () => {
     // Note: api("/login")
     try {
       const res = await userAPI.getUserById(1);
-      console.log(res.data);
       setUser(res.data);
     } catch (error) {
       console.log(error);
+      setUser(null);
     }
   };
 
@@ -23,9 +22,9 @@ function AuthContextProvider({ children }) {
     setUser(null);
   };
 
-  useEffect(() => {
-    login();
-  }, []);
+  //   useEffect(() => {
+  //     login();
+  //   }, []);
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
