@@ -6,7 +6,7 @@ function LoginPage() {
       component="main"
       height="100vh"
       display="flex"
-      justifyContent="space-between"
+      justifyContent="space-around"
     >
       <Box
         component="section"
@@ -15,7 +15,8 @@ function LoginPage() {
         justifyContent="center"
         alignItems="center"
         padding="20px"
-        sx={{ flex: 1 }}
+        flex={1}
+        sx={{ display: { xs: "none", lg: "flex" } }}
       >
         <Typography variant="h2" color="#4D8ED3" fontWeight="900">
           FakeBuck
